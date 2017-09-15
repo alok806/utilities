@@ -1,0 +1,2 @@
+- include: master_init.yml
+- include: pod_network.yml

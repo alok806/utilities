@@ -1,0 +1,5 @@
+proxy:
+ http_proxy: <your-proxy>
+ https_proxy: <your-proxy>
+ no_proxy: 10.0.0.0/8,k8s-*
+ NO_PROXY: 10.0.0.0/8,k8s-*

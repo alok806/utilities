@@ -1,0 +1,12 @@
+- name: Disable selinux now
+  command: setenforce 0
+- name: Disable selinux at startup
+  replace:
+   path: /etc/selinux/config
+   regexp: 'SELINUX=enforcing'
+   replace: 'SELINUX=disabled'
+- name: Disable firewalld
+  systemd:
+   name: firewalld
+   state: stopped
+   enabled: no

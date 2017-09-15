@@ -1,0 +1,7 @@
+---
+
+- hosts: k8s-master
+  user: user
+  gather_facts: false
+  roles:
+   - deploy

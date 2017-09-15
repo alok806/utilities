@@ -1,0 +1,14 @@
+[k8s-nodes]
+k8s-2
+k8s-3
+
+[k8s-master]
+k8s-1
+
+[all]
+k8s-1
+k8s-2
+k8s-3
+
+[test]
+k8s-4

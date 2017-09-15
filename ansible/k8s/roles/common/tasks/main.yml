@@ -1,0 +1,6 @@
+- include: yum_update.yml
+- include: install_docker.yml
+- include: install_kubectl.yml
+- include: security.yml
+- include: install_kubeadm.yml
+- include: cgroup.yml

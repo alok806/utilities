@@ -1,0 +1,11 @@
+- name: change kubeadm cgroup driver
+  replace:
+   path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+   regexp: 'cgroup-driver=systemd'
+   replace: 'cgroup-driver=cgroupfs'
+- name: Restart kubelet after flushing configuration changes
+  systemd:
+   name: kubelet
+   enabled: yes
+   state: restarted
+   daemon_reload: yes

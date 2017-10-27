@@ -1,0 +1,3 @@
+- include: yum_update.yml
+- include: install_java.yml
+- include: install_confluent.yml

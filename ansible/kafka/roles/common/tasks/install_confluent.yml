@@ -1,0 +1,32 @@
+- name: install confluent RPM key
+  rpm_key:
+   state: present
+   key: http://packages.confluent.io/rpm/3.2/archive.key
+- name: copy confluent repo
+  copy:
+   src: confluent.repo
+   dest: /etc/yum.repos.d
+- name: install confluent oss
+  yum:
+   name: confluent-platform-oss-2.11
+   state: latest
+- name: copy zookeeper configuration file
+  template:
+   src: zookeeper.j2
+   dest: /etc/kafka/zookeeper.properties
+- name: copy kafka configuration file
+  template:
+   src: server.j2
+   dest: /etc/kafka/server.properties
+- name: start zookeeper
+  shell: nohup zookeeper-server-start /etc/kafka/zookeeper.properties &
+- name: wait for zookeeper to start
+  wait_for:
+   port: 2181
+   delay: 10
+- name: start kafka
+  shell: nohup kafka-server-start /etc/kafka/server.properties &
+- name: wait for kafka to start
+  wait_for:
+   port: 9092
+   delay: 10

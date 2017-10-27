@@ -1,0 +1,5 @@
+proxy:
+ http_proxy: http://<your-proxy>:<port>/
+ https_proxy: http://<your-proxy>:<port>/
+ no_proxy: 10.0.0.0/8,kn-*
+ NO_PROXY: 10.0.0.0/8,kn-*

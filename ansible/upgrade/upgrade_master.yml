@@ -1,0 +1,8 @@
+---
+
+- hosts: masters
+  gather_facts: false
+  environment: "{{ proxy }}"
+  user: root
+  roles:
+   - upgrade_master

@@ -1,0 +1,8 @@
+---
+
+- hosts: workers
+  gather_facts: false
+  environment: "{{ proxy }}"
+  user: root
+  roles:
+   - upgrade_worker

@@ -1,0 +1,18 @@
+k8s_ver: v1.15.0
+proxy:
+ http_proxy: <your-proxy>
+ https_proxy: <your-proxy>
+ no_proxy: 10.0.0.0/8,master-*,worker-*
+ NO_PROXY: 10.0.0.0/8,master-*,worker-*
+master_binaries:
+ - binary: kube-apiserver
+ - binary: kube-controller-manager
+ - binary: kube-scheduler
+worker_binaries:
+ - binary: kube-proxy
+ - binary: kubelet
+generic_binaries:
+ - binary: kubectl
+base_url: https://storage.googleapis.com/kubernetes-release/release
+arch: bin/linux/amd64
+dest: /usr/local/bin

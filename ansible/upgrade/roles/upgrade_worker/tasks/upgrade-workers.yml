@@ -1,0 +1,19 @@
+- name: Download worker binaries
+  get_url:
+   url: "{{ base_url }}/{{ k8s_ver }}/{{ arch }}/{{ item.binary }}"
+   dest: "{{ dest }}"
+   mode: "755"
+  with_items: "{{ worker_binaries }}"
+- name: Download generic binaries
+  get_url:
+   url: "{{ base_url }}/{{ k8s_ver }}/{{ arch }}/{{ item.binary }}"
+   dest: "{{ dest }}"
+   mode: "755"
+  with_items: "{{ generic_binaries }}"
+- name: Restart worker binaries
+  systemd:
+   name: "{{ item.binary }}"
+   daemon_reload: yes
+   state: restarted
+   enabled: yes
+  with_items: "{{ worker_binaries }}"

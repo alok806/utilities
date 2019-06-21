@@ -1,0 +1,2 @@
+- import_playbook: upgrade_master.yml
+- import_playbook: upgrade_worker.yml

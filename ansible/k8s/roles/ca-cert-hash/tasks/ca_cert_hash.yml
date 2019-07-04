@@ -1,0 +1,5 @@
+- name: Calculate sha256 hash of the CA Cert
+  shell: openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
+  register: ca_cert_hash
+- set_fact:
+   ca_cert_hash: "{{ ca_cert_hash }}"

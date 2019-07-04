@@ -1,0 +1,5 @@
+- name: Generate certificate key
+  command: kubeadm alpha certs certificate-key
+  register: cert_key
+- set_fact:
+   cert_key: "{{ cert_key }}"

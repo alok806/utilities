@@ -1,0 +1,8 @@
+---
+
+- hosts: workers
+  user: root
+  environment: "{{ proxy }}"
+  gather_facts: false
+  roles:
+  - join_worker

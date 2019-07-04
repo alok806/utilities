@@ -1,0 +1,10 @@
+- name: create .kube directory
+  file:
+   path: /root/.kube
+   state: directory
+
+- name: kubectl configuration
+  copy:
+   remote_src: yes
+   src: /etc/kubernetes/admin.conf
+   dest: /root/.kube/config

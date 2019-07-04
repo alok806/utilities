@@ -1,0 +1,5 @@
+- name: copy hosts file
+  copy:
+   src: hosts
+   dest: /etc/hosts
+   mode: '644'

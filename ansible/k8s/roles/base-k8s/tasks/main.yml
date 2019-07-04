@@ -1,0 +1,3 @@
+- include: base_k8s.yml
+- include: kube.yml
+- include: kernel.yml

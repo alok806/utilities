@@ -1,7 +1,0 @@
-[all]
-30.1.1.138 hostname="master-1"
-30.1.1.139 hostname="master-2"
-30.1.1.140 hostname="master-3"
-30.1.1.141 hostname="worker-1"
-30.1.1.142 hostname="worker-2"
-30.1.1.143 hostname="worker-3"

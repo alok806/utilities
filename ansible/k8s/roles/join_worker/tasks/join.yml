@@ -1,0 +1,5 @@
+- name: Join worker nodes
+  shell: "{{ hostvars[groups['bootstrapmaster'][0]]['join_command']['stdout'] }}"
+  register: worker_op
+- debug: msg="{{ worker_op }}"
+

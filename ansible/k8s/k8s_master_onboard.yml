@@ -1,8 +1,0 @@
----
-
-- hosts: test
-  user: user
-  environment: "{{ proxy }}"
-  gather_facts: false
-  roles:
-   - master

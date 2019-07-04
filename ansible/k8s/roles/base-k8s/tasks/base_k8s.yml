@@ -1,0 +1,7 @@
+- name: swap off right now
+  command: swapoff -a
+- name: swap off at next reboot
+  lineinfile:
+   path: /etc/fstab
+   regexp: '^/dev/mapper/.*swap.*'
+   state: absent

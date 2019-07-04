@@ -1,0 +1,9 @@
+- name: Determine kubectl version
+  shell: kubectl version | base64 | tr -d '\n'
+  register: ver
+- name: Download weave template
+  get_url:
+   url: "https://cloud.weave.works/k8s/net?k8s-version={{ ver.stdout }}"
+   dest: /tmp/weave.yml
+- name: Apply weave template
+  command: kubectl apply -f /tmp/weave.yml

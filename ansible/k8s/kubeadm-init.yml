@@ -1,0 +1,8 @@
+---
+
+- hosts: bootstrapmaster
+  user: root
+  gather_facts: false
+  environment: "{{ proxy }}"
+  roles:
+  - kubeadm-init

@@ -1,0 +1,34 @@
+- name: kubeadm-config
+  template:
+   src: kubeadm-config.j2
+   dest: /root/kubeadm-config.yaml
+
+- name: kubeadm init
+  command: "kubeadm init --config /root/kubeadm-config.yaml"
+  register: init
+- debug: msg="{{ init }}"
+
+- name: get join command and new token
+  command: kubeadm token create --ttl 10m --print-join-command
+  register: jc
+- set_fact:
+   join_command: "{{ jc }}"
+
+- name: Upload certs and capture cert key
+  command: kubeadm init phase upload-certs --experimental-upload-certs
+  register: ck
+  tags:
+   - always
+
+- debug: msg="{{ ck['stdout'] }}"
+  tags:
+   - always
+
+- set_fact:
+   cert_key: "{{ ck['stdout'] | regex_search('Using certificate key:\\n(.*)') | regex_replace('Using certificate key:\\n(.*)', '\\1') }}"
+  tags:
+   - cert_key
+
+- debug: msg="{{ hostvars[inventory_hostname]['cert_key'] }}"
+  tags:
+   - cert_key

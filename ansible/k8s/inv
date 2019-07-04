@@ -1,14 +1,30 @@
-[k8s-nodes]
-k8s-2
-k8s-3
-
-[k8s-master]
-k8s-1
-
-[all]
-k8s-1
-k8s-2
-k8s-3
-
-[test]
-k8s-4
+all:
+ hosts:
+  30.1.1.144:
+   hostname: master-1
+  30.1.1.145:
+   hostname: master-2
+  30.1.1.146:
+   hostname: master-3
+  30.1.1.147:
+   hostname: worker-1
+  30.1.1.148:
+   hostname: worker-2
+  30.1.1.149:
+   hostname: worker-3
+ children:
+  masters:
+   children:
+    bootstrapmaster:
+     hosts:
+      30.1.1.144:
+    othermasters:
+     hosts:
+      30.1.1.145:
+      30.1.1.146:
+  workers:
+   hosts:
+    30.1.1.147:
+    30.1.1.148:
+    30.1.1.149:
+  

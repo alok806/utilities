@@ -1,0 +1,5 @@
+- include: set_hostname.yml
+- include: copy_hosts.yml
+
+
+

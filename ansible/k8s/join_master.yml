@@ -1,0 +1,8 @@
+---
+
+- hosts: othermasters
+  user: root
+  environment: "{{ proxy }}"
+  gather_facts: false
+  roles:
+  - join-master

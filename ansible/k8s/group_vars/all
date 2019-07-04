@@ -1,5 +1,7 @@
 proxy:
- http_proxy: <your-proxy>
- https_proxy: <your-proxy>
- no_proxy: 10.0.0.0/8,k8s-*
- NO_PROXY: 10.0.0.0/8,k8s-*
+ http_proxy: <your proxy>
+ https_proxy: <your proxy>
+ no_proxy: 10.0.0.0/8,30.0.0.0/8
+ NO_PROXY: 10.0.0.0/8,30.0.0.0/8
+lb_ip: 30.1.1.135
+lb_port: 8443

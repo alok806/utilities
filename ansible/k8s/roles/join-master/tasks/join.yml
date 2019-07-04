@@ -1,0 +1,5 @@
+- name: Join other masters
+  shell: "{{ hostvars[groups['bootstrapmaster'][0]]['join_command']['stdout'] }} --control-plane --certificate-key {{ hostvars[groups['bootstrapmaster'][0]]['cert_key'] }}"
+  register: master_op
+- debug: msg="{{ master_op }}"
+

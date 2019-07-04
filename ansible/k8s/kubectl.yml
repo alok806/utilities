@@ -1,0 +1,8 @@
+---
+
+- hosts: bootstrapmaster
+  user: root
+  environment: "{{ proxy }}"
+  gather_facts: false
+  roles:
+  - kubectl

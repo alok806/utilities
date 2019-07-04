@@ -1,0 +1,26 @@
+- name: copy kubernetes repo
+  copy:
+   src: kubernetes.repo
+   dest: /etc/yum.repos.d
+- name: Install kubelet
+  yum:
+   name: kubelet
+   state: latest
+   disable_excludes: kubernetes
+- name: Install kubeadm
+  yum:
+   name: kubeadm
+   state: latest
+   disable_excludes: kubernetes
+- name: Install kubectl
+  yum:
+   name: kubectl
+   state: latest
+   disable_excludes: kubernetes
+- name: restart kubelet and enable at startup
+  systemd:
+   name: kubelet
+   daemon_reload: yes
+   state: restarted
+   enabled: yes
+

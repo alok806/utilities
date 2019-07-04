@@ -1,5 +1,0 @@
-- name: Copy kubectl binary
-  copy:
-   src: kubectl
-   dest: /usr/local/bin
-   mode: 0755

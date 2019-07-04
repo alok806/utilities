@@ -1,0 +1,12 @@
+- include: hostname.yml
+- include: yum.yml
+- include: security.yml
+- include: baseline.yml
+- include: docker.yml
+- include: base_k8s.yml
+- include: set_join_facts.yml
+- include: kubeadm-init.yml
+- include: join_master.yml
+- include: kubectl.yml
+- include: cni.yml
+- include: join_worker.yml

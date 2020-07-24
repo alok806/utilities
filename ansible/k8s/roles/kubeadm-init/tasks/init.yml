@@ -15,7 +15,7 @@
    join_command: "{{ jc }}"
 
 - name: Upload certs and capture cert key
-  command: kubeadm init phase upload-certs --experimental-upload-certs
+  command: kubeadm init phase upload-certs --upload-certs
   register: ck
   tags:
    - always
